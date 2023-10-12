@@ -1,0 +1,12 @@
+FROM node:20-alpine
+
+WORKDIR /application/
+
+COPY public/ /application/public
+COPY src/ /application/src
+COPY package.json /application/
+COPY ./.env.docker /application/.env
+
+RUN npm install
+
+CMD ["npm", "start"]

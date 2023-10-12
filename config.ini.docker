@@ -1,0 +1,10 @@
+[server]
+api_prefix = /api/v1
+
+[database]
+type = pgsql
+host = postgres
+port = 5432
+database = prtdb
+user = pgprtuser
+password = mkfrg[o268phwt;enravi0]
