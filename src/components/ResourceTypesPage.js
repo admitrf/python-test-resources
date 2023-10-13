@@ -19,6 +19,7 @@ const ResourceTypesPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [refreshData, setRefreshData] = useState(0);
+    const [refreshChild, setRefreshChild] = useState(0);
     const [edited, setEdited] = useState(emptyItem)
 
     const checkedIds = [];
@@ -71,8 +72,8 @@ const ResourceTypesPage = () => {
     }
 
     const onAddNew = () => {
-        setEdited({});
         setEdited(emptyItem);
+        setRefreshChild(refreshChild + 1);
     }
 
     const onDeleteItem = async (id) => {
@@ -152,7 +153,7 @@ const ResourceTypesPage = () => {
                     <button onClick={(e) => onAddNew()}>Add new</button>
                 </div>
                 <p/>
-                <ResourceTypeEditForm data={{'edited': edited}} onSave={(e) => setRefreshData(refreshData + 1)} />
+                <ResourceTypeEditForm data={{'edited': edited, 'refreshChild': refreshChild}} onSave={(e) => setRefreshData(refreshData + 1)} />
             </>
         
     }
